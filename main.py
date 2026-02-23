@@ -4,6 +4,7 @@ import time, sys
 # add other imports like sound, math, etc. here
 
 #test push
+#tes pull
 
 
 # pauses game until user presses enter
