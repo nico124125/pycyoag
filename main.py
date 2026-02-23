@@ -456,7 +456,8 @@ def warZone():
 def findSupplies(): 
     print("You find it best to find supplies")
     mylist = ["Water" , "Water" , "Water" , "Water" , "Water" , "Bandage" , "Bandage" , "Bandage" , "Bandage" , "Bandage" , "Nuke Detonator"]
-    if (random.choice(mylist)) == "Water" :
+    result = random.choice(mylist)
+    if (result) == "Water" :
         print(f'{name} finds some water, Should be useful...')
         time.sleep(0.5)
         print()
