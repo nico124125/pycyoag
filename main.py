@@ -425,7 +425,7 @@ def warZone():
     time.sleep(2)
     mylist = ["Death" , "landing"]
     if (random.choice(mylist)) == "Death" :
-        print(f'{name} forgot to pull their parachute!')
+        print(f'{name}s parachute ripped!')
         print("You Died!")
         
     else:
@@ -463,7 +463,7 @@ def findSupplies():
         print()
         print('You have now have some water, but still a objective to complete, what will you do?')
         print('  1 Seek Enemies')
-        print('  3 Go towards strange fog...')
+        print('  2 Go towards strange fog...')
         choice = chooseOption(2)
         print(choice)
         if choice == 1:
@@ -473,23 +473,20 @@ def findSupplies():
         else:
             print("That wasn't a option! You died from a enemy squad.")
         
-    elif random.choice(mylist) == "Bandage":
+    elif (result) == "Bandage":
         
         print(f'{name} finds a bandage, Hopefully wont need it...')
         time.sleep(0.5)
         print()
         print('You have now have a bandage, but still a objective to complete, what will you do?')
         print('  1 Seek Enemies')
-        print('  2 Build shelter')
-        print('  3 Go towards strange fog...')
+        print('  2 Go towards strange fog...')
         choice = chooseOption(3)
         time.sleep(0.5)
         print(choice)
         if choice == 1:
             seekEnemies()
         elif 2 == choice:
-            buildShelter()
-        elif 3 == choice:
             amazingChoice()
         else:
             print("That wasn't a option! You died from a enemy squad.")
@@ -509,14 +506,6 @@ def seekEnemies():
     print('1 Use your supplied weapon')
     print('2 Throw a rock')  
     print('3 airstrike')
-
-def leave():
-    mylist = ["leave", "death"]
-    if (random.choice(mylist)) == "leave" :
-        print(f'although {name} has just landed, they have decided to leave')
-    else:
-        print(f'{name} was attacked trying to flee!')
-        # handle player's selection to jump to other locations/scenes/actions
     choice = chooseOption(3)
     print(choice)
     if choice == 1:
@@ -525,9 +514,18 @@ def leave():
         RockThrow()
     elif 3 == choice:
         airStrike1()
-            
+
     else:
         print("That wasn't a option! You died from a enemy squad.")
+
+def leave():
+    mylist = ["leave", "death"]
+    if (random.choice(mylist)) == "leave" :
+        print(f'although {name} has just landed, they have decided to leave')
+    else:
+        print(f'{name} was attacked trying to flee!')
+        # handle player's selection to jump to other locations/scenes/actions
+
         
 def UseWeapon():
     print('Of course! You will use your supplied weapon')
@@ -560,6 +558,7 @@ def airStrike():
     print('The airstrike is inbound, so you take cover')
     time.sleep(1)
     print('the airstrike wipes the squad!')
+    levelTwo()
     
     
 def airStrike1():
@@ -574,6 +573,7 @@ def airStrike1():
         print("You spot the jet in the distance, it bursts through the sky and releases it's payload")
         time.sleep(2)
         print("Direct hit! the squad is no more!")
+        levelTwo()
     
     
     # handle player's selection to jump to other locations/scenes/actions
@@ -616,12 +616,100 @@ def amazingChoice1():
 
 
 # rename function to reflect your actual location/scene/action
-def anotherLocation3():
+def levelTwo():
+    print("you have made it past the first squad, you now have a new choice of options")
+    time.sleep(3)
+    print('1 Find a weapon')
+    print('2 Find supplies')
+    print('3 Search for more enemies to attack')
+    print('4 Try to establish radio signal')
+    print('5 Leave')
+    choice = chooseOption(3)
+    print(choice)
+    if choice == 1:
+        findaWeapon()
+    elif 2 == choice:
+        findsupplies2()
+    elif 3 == choice:
+        searchforenemies()
+    elif 4 == choice:
+        radioSignal()
+    elif 5 == choice:
+        leave()
+
+    else:
+        print("That wasn't a option! You instead implode from self conflict")
+
+
+
+# Find A weapon story
+def findaWeapon():
+    print('You decide that to be in a warzone you probably need a weapon')
+    time.sleep(2)
+    print('you find a building marked armory, so you assume its a armory, how will you get in')
+    time.sleep(3)
+    print('1 Back door')
+    print('2 Front door')
+    print('3 skylight')
+    print('4 dig..')
+    choice = chooseOption(3)
+    print(choice)
+    if choice == 1:
+        backDoor()
+    elif 2 == choice:
+        frontDoor()
+    elif 3 == choice:
+        skyLight()
+    elif 4 == choice:
+        dig()
+    else:
+        print("That wasn't a option! You instead implode from self conflict")
+
+def backDoor():
+    print('you decide to go into the back door')
+    time.sleep(1)
+    print('You sneek over to the back door, and noticed its unlocked')
+    time.sleep(1)
+    print('as you enter the building, you notice a large amount of enemies, fortunately, you look the part')
+    time.sleep(1)
+    print('you are easily able to walk past the gaurds and take a weapon')
+    print('You exit the building as quickly as you snuck in')
+    time.sleep(1)
+    print('what will you do?')
+    #########INSERT COPY OF ORIGINAL OPTIONS SO THAT THE PLAYER NOW HAS A WEAPON#########
+def frontDoor():
+    print(f'In the movies they always gaurd the back door, so {name} decides to go through the front')
+    time.sleep(1)
+    print("you walk in the front door...")
+    time.sleep(5)
+    print("as you step through the entrance, every single gaurd within the building looks directly at you then pauses.")
+def skyLight():
+    print(f'{name} thinks they are sneaky, so they repel up to the roof and attempt to open the skylight')
+    time.sleep(1)
+    print('Unfortunately, you are not on the Impossible Mission Force so you fall through the glass and hit the ground')
+def dig():
+    print(f'{name} decides they will dig their way in.')
+    print(f'this is going to take awhile {name} says as they take out their shovel')
+    time.sleep(2)
+    print('**2 DAYS LATER**')
+    print('IVE BEEN DIGGING FOR SO LONG AND I HAVENT EVEN MADE A TUNNEL YET!')
+    time.sleep(5)
+    print('**2 MORE DAYS LATER**')
+    time.sleep(1)
+    print('...')
+    time.sleep(1)
+# Find supplies 2 story
+def findsupplies2():
     print('continue your story...')
 
-# rename function to reflect your actual location/scene/action
-def anotherLocation4():
+# Search for bad enemies story
+def searchforenemies():
     print('continue your story...')
+
+# Try to establish a radio signal story
+def radioSignal():
+    print('continue your story...')
+
 
 
 
