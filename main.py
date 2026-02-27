@@ -423,7 +423,7 @@ def warZone():
     time.sleep(0.5)
     print('You are landing!')
     time.sleep(2)
-    mylist = ["Death" , "landing"]
+    mylist = ["Death" , "landing" , "landing" , "landing" , "landing" , "landing" , "landing"]
     if (random.choice(mylist)) == "Death" :
         print(f'{name}s parachute ripped!')
         print("You Died!")
@@ -487,7 +487,7 @@ def findSupplies():
         if choice == 1:
             seekEnemies()
         elif 2 == choice:
-            amazingChoice()
+         amazingChoice()
         else:
             print("That wasn't a option! You died from a enemy squad.")
         
@@ -617,7 +617,7 @@ def amazingChoice1():
 
 # rename function to reflect your actual location/scene/action
 def levelTwo():
-    print("you have made it past the first squad, you now have a new choice of options")
+    print("you have made it past the first squad, what will you do now")
     time.sleep(3)
     print('1 Find a weapon')
     print('2 Find supplies')
@@ -675,7 +675,7 @@ def backDoor():
     print('you are easily able to walk past the gaurds and take a weapon')
     print('You exit the building as quickly as you snuck in')
     time.sleep(1)
-    print('what will you do?')
+    levelTwoWeapon()
     #########INSERT COPY OF ORIGINAL OPTIONS SO THAT THE PLAYER NOW HAS A WEAPON#########
 def frontDoor():
     print(f'In the movies they always gaurd the back door, so {name} decides to go through the front')
@@ -700,15 +700,209 @@ def dig():
     time.sleep(1)
 # Find supplies 2 story
 def findsupplies2():
-    print('continue your story...')
+    print(f'{name} needs supplies')
+    time.sleep(3)
+    mylist = ["Armour Plates", "Helmet"]
+    result = random.choice(mylist)
+    if (result) == "Armour Plates":
+        print(f'{name} finds some Armour Plates...')
+        time.sleep(1)
+        print('what will you do now?')
+        time.sleep(1)
+        print('1 Find a weapon')
+        print('2 Search for more enemies to attack')
+        print('3 Try to establish radio signal')
+        print('4 Leave')
+        choice = chooseOption(3)
+        print(choice)
+        if choice == 1:
+            findaWeapon()
+        elif 2 == choice:
+            searchforenemies()
+        elif 3 == choice:
+            radioSignal()
+        elif 4 == choice:
+            leave()
+
+        else:
+            print("That wasn't a option! You instead implode from self conflict")
+
+    elif (result) == "Helmet":
+
+        print(f'{name} finds a Helmet')
+        time.sleep(0.5)
+        print()
+        print('You found a helmet, what will you do now?')
+        time.sleep(1)
+        print('1 Find a weapon')
+        print('2 Search for more enemies to attack')
+        print('3 Try to establish radio signal')
+        print('4 Leave')
+        choice = chooseOption(3)
+        print(choice)
+        if choice == 1:
+            findaWeapon()
+        elif 2 == choice:
+            searchforenemies()
+        elif 3 == choice:
+            radioSignal()
+        elif 4 == choice:
+            leave()
+
+
+
 
 # Search for bad enemies story
 def searchforenemies():
-    print('continue your story...')
+    print("Not done yet :)")
 
 # Try to establish a radio signal story
 def radioSignal():
-    print('continue your story...')
+    print(f'{name} chooses to establish a radio signal')
+    time.sleep(2)
+    print('You start to set up...')
+    time.sleep(2)
+    print(f'{name} successfully set up a radio')
+    print(f'enemies can now see you {name}')
+    radioSignalChoice()
+
+# Variable story parts
+def radioSignalChoice():
+    print('You make up 3 decisions in your head, and try to pick the best one')
+    time.sleep(2)
+    print('1 Find a weapon to fight the squads that now see you')
+    print('2 Take down radio')
+    print('3 leave')
+    choice = chooseOption(3)
+    print(choice)
+    if choice == 1:
+        findaweapon_radio()
+    elif 2 == choice:
+        destroyRadio()
+    elif 3 == choice:
+        leave()
+    else:
+        print("That wasn't a option! You instead implode from self conflict")
+
+def destroyRadio():
+    print(f'{name} chooses to take the radio down')
+    print('Hold on...')
+    time.sleep(4)
+    levelTwo()
+
+def findaweapon_radio():
+    print('After being spotted by every squad, you choose to find a weapon')
+    time.sleep(2)
+    print('you find a building marked armory, so you assume its a armory, how will you get in')
+    time.sleep(3)
+    print('1 Back door')
+    print('2 Front door')
+    print('3 skylight')
+    print('4 dig..')
+    choice = chooseOption(3)
+    print(choice)
+    if choice == 1:
+        backDoor_Radio()
+    elif 2 == choice:
+        frontDoor()
+    elif 3 == choice:
+        skyLight()
+    elif 4 == choice:
+        dig()
+    else:
+        print("That wasn't a option! You instead implode from self conflict")
+
+def backDoor_Radio():
+    print('you decide to go into the back door')
+    time.sleep(1)
+    print('You sneak over to the back door, and noticed its unlocked')
+    time.sleep(1)
+    print('as you enter the building, you notice a large amount of enemies, fortunately, you sneak your way past, they dont spot your radio signal for some reason')
+    time.sleep(1)
+    print('you are easily able to walk past the guards and take a weapon')
+    print('You exit the building as quickly as you snuck in')
+    time.sleep(1)
+    levelTwoWeapon_Radio()
+
+
+
+
+
+
+def levelTwoWeapon():
+    print('1 Find supplies')
+    print('2 Search for more enemies to attack')
+    print('3 Try to establish radio signal')
+    print('4 Leave')
+    choice = chooseOption(3)
+    print(choice)
+    if 1 == choice:
+        findsupplies2()
+    elif 2 == choice:
+        searchforenemies()
+    elif 3 == choice:
+        radioSignal()
+    elif 4 == choice:
+        leave()
+
+    else:
+        print("That wasn't a option! You instead implode from self conflict")
+
+def levelTwoWeapon_Radio():
+    print('1 Find supplies')
+    print('2 Search for more enemies to attack')
+    print('3 Leave')
+    choice = chooseOption(3)
+    print(choice)
+    if 1 == choice:
+        findsupplies2()
+    elif 2 == choice:
+        searchforenemiesradio()
+    elif 3 == choice:
+        leave()
+
+    else:
+        print("That wasn't a option! You instead implode from self conflict")
+
+def searchforenemiesradio():
+    print(f'{name} needs to search for enemies')
+    time.sleep(1)
+    print(f'while {name} makes their decision, you spot enemies in the distance, however, you notice they are already looking at you. wait a minute, they spotted you from your radio signal!')
+    time.sleep(5)
+    print("what was that loud pop?-")
+    time.sleep(3)
+    print('...')
+    time.sleep(3)
+    print(f'{name} was attacked, does {name} have a bandage, helmet, or armour plates?')
+    print('1 Yes')
+    print('2 No')
+    choice = chooseOption(2)
+    print(choice)
+    if choice == 1:
+        levelthree_attacked()
+
+    elif 2 == choice:
+        print(f'{name} does not have anything to protect them...')
+        print('you died!')
+
+
+
+    else:
+        print("You dont remember fast enough")
+
+def levelthree_attacked():
+    print(f'{name} is wounded, but still alive')
+    print("what will you do")
+    time.sleep(1)
+    print('1 Find supplies')
+    print('2 Search for more enemies to attack')
+    print('3 Try to establish radio signal')
+    print('4 Leave')
+    choice = chooseOption(3)
+    print(choice)
+
+
+
 
 
 
