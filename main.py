@@ -8,6 +8,9 @@ import time, sys
 
 
 # pauses game until user presses enter
+
+
+
 name = input("Enter your name soilder! ")
 
 
@@ -27,8 +30,11 @@ def chooseOption(numberOfOptions):
     
 
 def pause():
-  input('Enter to deploy')
-  print(f'You are being deployed {name}')
+ input('Enter to deploy')
+ print(f'You are being deployed {name}')
+
+
+
 
 
 deploy_intro_ascci1 = r"""
@@ -393,7 +399,16 @@ def start():
 
     # Then jump to the first scene/location/action;
     # rename the function call AND the function defintion!
-    warZone()
+    print("skip intro?")
+    print('1 Yes')
+    print('2 No')
+    choice = chooseOption(2)
+    print(choice)
+    if choice == 1:
+        warZone_nointro()
+    elif 2 == choice:
+        warZone()
+
 
 
     
@@ -452,6 +467,29 @@ def warZone():
             amazingChoice()
         else:
             print("That wasn't a option! You died from a enemy squad.")
+
+
+def warZone_nointro():
+    print()
+    print('You are now in the warzone, What will you do?')
+    print('  1 Seek Enemies')
+    print('  2 Find Supplies')
+    print('  3 leave')
+    print('  4 Go towards strange fog...')
+
+    # handle player's selection to jump to other locations/scenes/actions
+    choice = chooseOption(4)
+    print(choice)
+    if choice == 1:
+        seekEnemies()
+    elif 2 == choice:
+        findSupplies()
+    elif 3 == choice:
+        leave()
+    elif 4 == choice:
+        amazingChoice()
+    else:
+        print("That wasn't a option! You died from a enemy squad.")
 
 def findSupplies(): 
     print("You find it best to find supplies")
@@ -749,7 +787,52 @@ def findsupplies2():
         elif 4 == choice:
             leave()
 
+def findsupplies2_radio():
+    print(f'{name} needs supplies')
+    time.sleep(3)
+    mylist = ["Armour Plates", "Helmet"]
+    result = random.choice(mylist)
+    if (result) == "Armour Plates":
+        print(f'{name} finds some Armour Plates...')
+        time.sleep(1)
+        print('what will you do now?')
+        time.sleep(1)
+        print('1 Find a weapon')
+        print('2 Search for more enemies to attack')
+        print('3 Leave')
+        choice = chooseOption(3)
+        print(choice)
+        if choice == 1:
+            findaWeapon()
+        elif 2 == choice:
+            searchforenemies()
+        elif 3 == choice:
+            leave()
 
+        else:
+            print("That wasn't a option! You instead implode from self conflict")
+
+    elif (result) == "Helmet":
+
+        print(f'{name} finds a Helmet')
+        time.sleep(0.5)
+        print()
+        print('You found a helmet, what will you do now?')
+        time.sleep(1)
+        print('1 Find a weapon')
+        print('2 Search for more enemies to attack')
+        print('3 Try to establish radio signal')
+        print('4 Leave')
+        choice = chooseOption(3)
+        print(choice)
+        if choice == 1:
+            findaWeapon()
+        elif 2 == choice:
+            searchforenemies()
+        elif 3 == choice:
+            radioSignal()
+        elif 4 == choice:
+            leave()
 
 
 # Search for bad enemies story
@@ -812,6 +895,28 @@ def findaweapon_radio():
     else:
         print("That wasn't a option! You instead implode from self conflict")
 
+def findaweapon_radio_again():
+    print(f'{name} wants another weapon')
+    time.sleep(2)
+    print('you find a building marked armory, so you assume its a armory, how will you get in')
+    time.sleep(3)
+    print('1 Back door')
+    print('2 Front door')
+    print('3 skylight')
+    print('4 dig..')
+    choice = chooseOption(3)
+    print(choice)
+    if choice == 1:
+        backDoor_Radio_again_death()
+    elif 2 == choice:
+        frontDoor()
+    elif 3 == choice:
+        skyLight()
+    elif 4 == choice:
+        dig()
+    else:
+        print("That wasn't a option! You instead implode from self conflict")
+
 def backDoor_Radio():
     print('you decide to go into the back door')
     time.sleep(1)
@@ -823,6 +928,14 @@ def backDoor_Radio():
     print('You exit the building as quickly as you snuck in')
     time.sleep(1)
     levelTwoWeapon_Radio()
+def backDoor_Radio_again_death():
+    print('you decide to go into the back door... again.')
+    time.sleep(3)
+    print('You sneak over to the back door, and noticed its unlocked... because it was before')
+    time.sleep(4)
+    print('as you enter the building, you notice the large amount of enemies is still there, but this time, they instantly spot you')
+    time.sleep(1)
+    print('you died!')
 
 
 
@@ -830,7 +943,7 @@ def backDoor_Radio():
 
 
 def levelTwoWeapon():
-    print('1 Find supplies')
+    print('1 Find supplies (and go back)')
     print('2 Search for more enemies to attack')
     print('3 Try to establish radio signal')
     print('4 Leave')
@@ -897,7 +1010,7 @@ def levelthree_attacked():
     print('1 Find supplies')
     print('2 Search for more enemies to attack')
     print('3 Try to establish radio signal')
-    print('4 Leave')
+    print('4 placeholders^')
     choice = chooseOption(3)
     print(choice)
 
