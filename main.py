@@ -1,6 +1,8 @@
 ######################### IMPORTING MODULES/PACKAGES ###############################
 import random
 import time, sys
+import os
+
 
 # add other imports like sound, math, etc. here
 
@@ -32,6 +34,8 @@ def pause():
     input('Enter to deploy')
     print(f'You are being deployed {name}')
 
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 deploy_intro_ascci1 = r"""
          _  _
@@ -432,11 +436,11 @@ def warZone():
     time.sleep(0.5)
     print('You are landing!')
     time.sleep(2)
+    clear_screen()
     mylist = ["Death", "landing", "landing", "landing", "landing", "landing", "landing"]
     if (random.choice(mylist)) == "Death":
         print(f'{name}s parachute ripped!')
-        print("You Died!")
-
+        print("\033[1;31;40m You died! \n")
     else:
         print('You have successfully landed into a treacherous deep jungle in a undisclosed location')
         time.sleep(4)
@@ -448,6 +452,7 @@ def warZone():
         time.sleep(3)
         print("To proceed, you will need to push forward, deeper into the jungle")
         time.sleep(2)
+        # Clearing the Screen
         # list players options
         print()
         print('You are now in the warzone, What is your first objective?')
@@ -470,7 +475,7 @@ def warZone():
         else:
             print("That wasn't a option!")
 
-
+clear_screen()
 def warZone_nointro():
     print("To proceed, you will need to push forward, deeper into the jungle")
     # list players options
@@ -495,7 +500,7 @@ def warZone_nointro():
     else:
         print("That wasn't a option!")
 
-
+clear_screen()
 def findSupplies():
     print("You find it best to find supplies")
     mylist = ["Water", "Water", "Water", "Water", "Water", "Bandage", "Bandage", "Bandage", "Bandage", "Bandage"]
@@ -534,7 +539,7 @@ def findSupplies():
         else:
             print("That wasn't a option!")
 
-
+clear_screen()
 # rename function to reflect your actual location/scene/action
 def seekEnemies():
     print(f'{name} thinks that the best idea is to find enemy squads and take them out')
@@ -559,7 +564,7 @@ def seekEnemies():
     else:
         print("That wasn't a option!.")
 
-
+clear_screen()
 def leave():
     mylist = ["leave", "death"]
     if (random.choice(mylist)) == "leave":
@@ -568,7 +573,7 @@ def leave():
         print(f'{name} was attacked by a tiger trying to flee!')
         # handle player's selection to jump to other locations/scenes/actions
 
-
+clear_screen()
 def UseWeapon():
     print('Of course! You will use your supplied weapon')
     time.sleep(2)
@@ -577,7 +582,7 @@ def UseWeapon():
     print("the squad spots you.")
     print(f'{name} died!')
 
-
+clear_screen()
 def RockThrow():
     print(f'{name} finds a rock on the ground, and thinks it is best to throw it at the squad')
     time.sleep(2)
@@ -586,7 +591,7 @@ def RockThrow():
     mylist = ["Hit", "Miss"]
     if (random.choice(mylist)) == "Miss":
         print(f'{name} missed!')
-        print("you died!")
+        print("\033[1;31;40m You died! \n")
 
     else:
         print(f'{name} hits a squad member with the rock')
@@ -599,7 +604,7 @@ def RockThrow():
         print('You remember that you have a large laser pointer, and a radio that can be used to call in a airstrike')
         airStrike()
 
-
+clear_screen()
 def airStrike():
     print(f'{name} points the beam in the direction of the enemies, and talks into their radio')
     time.sleep(3)
@@ -607,11 +612,10 @@ def airStrike():
     time.sleep(3)
     print('the plane bursts through the air, and drops its munitions.')
     time.sleep(4)
-    print(
-        'the planes munitions hits the squad, it explodes with a thunderous explosion that sends a shockwave, moving trees, and scaring birds in the distance')
+    print('the planes munitions hits the squad, it explodes with a thunderous explosion that sends a shockwave, moving trees, and scaring birds in the distance')
     levelTwo()
 
-
+clear_screen()
 def airStrike1():
     print(
         f'{name} points the beam in the direction of the enemies, and talks into their radio, intending to use the beam as a marker for a airstrike')
@@ -626,7 +630,7 @@ def airStrike1():
         time.sleep(3)
         print(f'The squad spots {name} and starts firing')
         time.sleep(2)
-        print("you died!")
+        print("\033[1;31;40m You died! \n")
     else:
         print("You spot the jet in the distance, it bursts through the sky and releases it's payload")
         time.sleep(2)
@@ -635,7 +639,7 @@ def airStrike1():
 
     # handle player's selection to jump to other locations/scenes/actions
 
-
+clear_screen()
 def amazingChoice():
     print(f'{name} looks into the distance, spotting a small cave')
     time.sleep(3)
@@ -657,7 +661,7 @@ def amazingChoice():
     else:
         print("htat wsnt na topion!")
 
-
+clear_screen()
 def amazingChoice1():
     print("what... is......")
     time.sleep(3)
@@ -673,7 +677,7 @@ def amazingChoice1():
 
 # rename function to reflect your actual location/scene/action
 
-
+clear_screen()
 # rename function to reflect your actual location/scene/action
 def levelTwo():
     print(f' after getting past that first squad you need to get deeper into the jungle')
@@ -700,7 +704,7 @@ def levelTwo():
     else:
         print("That wasn't a option! You instead implode from self conflict")
 
-
+clear_screen()
 # Find A weapon story
 def findaWeapon():
     print('You decide that you need to be able to protect yourself with a weapon')
@@ -725,7 +729,7 @@ def findaWeapon():
     else:
         print("That wasn't a option! You instead implode from self conflict")
 
-
+clear_screen()
 def backDoor():
     print('you decide to go into the back door')
     time.sleep(2)
@@ -741,23 +745,22 @@ def backDoor():
     levelTwoWeapon()
     #########INSERT COPY OF ORIGINAL OPTIONS SO THAT THE PLAYER NOW HAS A WEAPON#########
 
-
+clear_screen()
 def frontDoor():
     print(f'{name} decides to go through the front because of how abandoned the factory looksee')
     time.sleep(1)
     print("you walk in the front door...")
     time.sleep(5)
-    print(
-        "as you step through the entrance, multiple armed guard within the building looks directly at you then pause.")
-    print("you died!")
+    print("as you step through the entrance, multiple armed guard within the building looks directly at you then pause.")
+    print("\033[1;31;40m You died! \n")
 
-
+clear_screen()
 def skyLight():
     print(f'{name} thinks they are sneaky, so they repel up to the roof and attempt to open the roof hatch')
     time.sleep(1)
     print('Unfortunately, you are not on the Impossible Mission Force so you fall through the hatch and hit the ground')
 
-
+clear_screen()
 def dig():
     print(f'{name} decides they will dig their way in.')
     print(f'this is going to take awhile {name} says as they take out their shovel')
@@ -770,7 +773,7 @@ def dig():
     print('...')
     time.sleep(1)
 
-
+clear_screen()
 # Find supplies 2 story
 def findsupplies2():
     print(f'{name} needs supplies')
@@ -822,7 +825,7 @@ def findsupplies2():
         elif 4 == choice:
             leave()
 
-
+clear_screen()
 def findsupplies2_radio():
     print(f'{name} needs supplies')
     time.sleep(3)
@@ -870,12 +873,12 @@ def findsupplies2_radio():
         elif 4 == choice:
             leave()
 
-
+clear_screen()
 def escape():
     print(f'{name} has supplies and heal themselves. you go back to find a weapon')
     findaWeapon()
 
-
+clear_screen()
 # Search for bad enemies story
 def searchforenemies():
     print(f'{name} chooses to search for more enemies to eliminate')
@@ -920,7 +923,7 @@ def searchforenemies_weapon():
         leave()
     else:
         print("That wasn't a option! You instead implode from self conflict")
-
+clear_screen()
 def levelthree_backup():
     print(f'{name} decides to call in backup')
     time.sleep(2)
@@ -936,7 +939,7 @@ def levelthree_backup():
     time.sleep(2)
     print("you get in the helicopter, and escape the warzone victorious")
     print(f'{name} escaped the warzone!')
-
+clear_screen()
 def levelthree_rambo():
     print(f'{name} decides to throw a grenade at the enemies')
     time.sleep(2)
@@ -967,7 +970,7 @@ def levelthree_rambo():
         airEscape()
     else:
         print("That wasn't a option! You instead implode from self conflict")
-
+clear_screen()
 def airControl():
     print(f'{name} decides that they will get a better view from the air traffic control tower')
     time.sleep(2)
@@ -990,13 +993,16 @@ def airControl():
         attack()
     else:
         print("That wasn't a option!")
+
+clear_screen()
 def run_tower():
     print('YOU RUN DOWN THE STAIRS AS QUICKLY AS POSSIBLE')
     time.sleep(1)
     print("AS YOU JET OUT THE DOOR, THE ALARM SOUNDS")
     time.sleep(2)
     print("THE BASE IS ALERTED AND SOLDIERS IN THE DISTANCE SPOT YOU")
-    print("you died!")
+    print("\033[1;31;40m You died! \n")
+clear_screen()
 def attack():
     print("you attack the soldier, waking him up")
     time.sleep(2)
@@ -1005,11 +1011,12 @@ def attack():
     print("you throw the soldier out of the window")
     time.sleep(3)
     print("you leave the tower and go back to the front of the base")
+clear_screen()
 def jump_out_window():
     print("You jump out of the window")
-    print("you died!")
+    print("\033[1;31;40m You died! \n")
     print("what did you think was going to happen?")
-
+clear_screen()
 def disguise():
     print("you spot a solider reading a book by himself")
     time.sleep(3)
@@ -1018,8 +1025,8 @@ def disguise():
     print("as you are taking the soldiers jacket off, his friend comes back from the washroom")
     time.sleep(4)
     print("Hows the book billy- WHAT THE HELL")
-    print("you died")
-
+    print("\033[1;31;40m You died! \n")
+clear_screen()
 def airEscape():
     print("you sneak over to a hanger by the end of the air base")
     time.sleep(3)
@@ -1038,6 +1045,7 @@ def airEscape():
         dogFight()
     elif 2 == choice:
         flyAway()
+clear_screen()
 def dogFight():
     print("you gain some altitude then slow down to get behind the enemy plane")
     time.sleep(3)
@@ -1048,18 +1056,19 @@ def dogFight():
     print("you shoot at the plane once more, the plane explodes like a firework, then plummets to the jungle below")
     print("you fly the jet to safety, surviving")
     print(f'{name} escaped the warzone!')
+clear_screen()
 def flyAway():
     print("You try to fly away, but the pilot follows and asks you what you are doing through the radio")
     time.sleep(3)
     print("the pilot gets inpatient and shoots you out of the sky")
-    print("you died!")
+    print("\033[1;31;40m You died! \n")
 
 
 
 
 
 
-
+clear_screen()
 # Try to establish a radio signal story
 def radioSignal_Weapon():
     print(f'{name} chooses to establish a signal to extract')
@@ -1070,7 +1079,7 @@ def radioSignal_Weapon():
     print(f'enemies can now see you {name}, but this means you can extract!')
     radioSignalChoice_weapon()
 
-
+clear_screen()
 def radioSignalChoice_weapon():
     print('You make up 3 decisions in your head, and try to pick the best one')
     time.sleep(2)
@@ -1088,7 +1097,7 @@ def radioSignalChoice_weapon():
     else:
         print("That wasn't a option! You instead implode from self conflict")
 
-
+clear_screen()
 def radioSignal():
     print(f'{name} chooses to establish a signal to extract')
     time.sleep(2)
@@ -1098,7 +1107,7 @@ def radioSignal():
     print(f'enemies can now see you {name}, but this means you can extract!')
     radioSignalChoice()
 
-
+clear_screen()
 # Variable story parts
 def radioSignalChoice():
     print('You make up 3 decisions in your head, and try to pick the best one')
@@ -1117,14 +1126,14 @@ def radioSignalChoice():
     else:
         print("That wasn't a option! You instead implode from self conflict")
 
-
+clear_screen()
 def destroyRadio():
     print(f'{name} chooses to take the radio down')
     print('Hold on...')
     time.sleep(4)
     levelTwo()
 
-
+clear_screen()
 def findaweapon_radio():
     print('After being spotted by every squad, you choose to find a weapon')
     time.sleep(2)
@@ -1147,7 +1156,7 @@ def findaweapon_radio():
     else:
         print("That wasn't a option! You instead implode from self conflict")
 
-
+clear_screen()
 def findaweapon_radio_again():
     print(f'{name} wants another weapon')
     time.sleep(2)
@@ -1170,21 +1179,20 @@ def findaweapon_radio_again():
     else:
         print("That wasn't a option! You instead implode from self conflict")
 
-
+clear_screen()
 def backDoor_Radio():
     print('you decide to go into the back door')
     time.sleep(1)
     print('You sneak over to the back door, and noticed its unlocked')
     time.sleep(1)
-    print(
-        'as you enter the building, you notice a large amount of enemies, fortunately, you sneak your way past, they dont pick up your radio signal for some reason')
+    print('as you enter the building, you notice a large amount of enemies, fortunately, you sneak your way past, they dont pick up your radio signal for some reason')
     time.sleep(1)
     print('you are easily able to walk past the guards and take a weapon')
     print('You exit the building as quickly as you snuck in')
     time.sleep(1)
     levelTwoWeapon_Radio()
 
-
+clear_screen()
 def backDoor_Radio_again_death():
     print('you decide to go into the back door... again.')
     time.sleep(3)
@@ -1193,9 +1201,9 @@ def backDoor_Radio_again_death():
     print(
         'as you enter the building, you notice the large amount of enemies is still there, but this time, they instantly spot you')
     time.sleep(1)
-    print('you died!')
+    print("\033[1;31;40m You died! \n")
 
-
+clear_screen()
 def levelTwoWeapon():
     print('1 Find supplies (and go back)')
     print('2 Search for more enemies to attack')
@@ -1215,7 +1223,7 @@ def levelTwoWeapon():
     else:
         print("That wasn't a option! You instead implode from self conflict")
 
-
+clear_screen()
 def levelTwoWeapon_Radio():
     print('1 Search for more enemies to attack')
     print('2 Find a weapon')
@@ -1232,7 +1240,7 @@ def levelTwoWeapon_Radio():
     else:
         print("That wasn't a option! You instead implode from self conflict")
 
-
+clear_screen()
 def searchforenemiesradio():
     print(f'{name} needs to search for enemies')
     time.sleep(1)
@@ -1253,14 +1261,14 @@ def searchforenemiesradio():
 
     elif 2 == choice:
         print(f'{name} does not have anything to protect them...')
-        print('you died!')
+        print("\033[1;31;40m You died! \n")
 
 
 
     else:
         print("You dont remember fast enough")
 
-
+clear_screen()
 def levelthree_attacked():
     print(f'{name} is wounded, but still alive')
     print("what will you do")
@@ -1280,7 +1288,7 @@ def levelthree_attacked():
     else:
         print("That wasn't a option! You instead implode from self conflict")
 
-
+clear_screen()
 def coverending():
     print(f'{name} chooses to stay in cover')
     time.sleep(2)
@@ -1293,7 +1301,7 @@ def coverending():
     print("you get in the helicopter, and escape the warzone victorious")
     print(f'{name} escaped the warzone!')
 
-
+clear_screen()
 def runinjungle():
     print(f'{name} runs into jungle, leaving their weapon behind')
     time.sleep(3)
@@ -1305,7 +1313,7 @@ def runinjungle():
     print(f'{name} escaped death, but not the warzone')
     time.sleep(3)
 
-
+clear_screen()
 def stayinjungle():
     print(f'{name} decides to stay in cover')
     print("you start to fight back, the enemies advance")
